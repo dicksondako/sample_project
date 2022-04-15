@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Supplier;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -25,9 +26,9 @@ class SupplierFactory extends Factory
     public function definition()
     {
         return [
-            'user_id'=>rand(1,100),
-            'company'=> $this->faker->name(),
-            'product_type'=> $this->faker->name(),
+            'user_id'=>User::factory(),
+            'company'=> $this->faker->text(25),
+            'product_cate_id'=>$this->faker->numberBetween($min = 0, $max = 4),
         ];
     }
 }

@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Product;
+use App\Models\Supplier;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,7 +16,7 @@ class ProductFactory extends Factory
      *
      * @var string
      */
-    protected $model = Supplier::class;
+    protected $model = Product::class;
     /**
      * Define the model's default state.
      *
@@ -23,10 +25,11 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'title'=> $this->faker->name(),
-            'description'=> $this->faker->name(),
-            'qty' =>rand(1,10),
-            'size' =>rand(12,15),
+            'supplier_id'=>Supplier::factory(),
+            'title'=> $this->faker->text(20),
+            'description'=> $this->faker->text(200),
+            'qty' =>$this->faker->numberBetween($min = 0, $max = 15),
+            'size'=>$this->faker->numberBetween($min = 8, $max = 12),
         ];
     }
 }

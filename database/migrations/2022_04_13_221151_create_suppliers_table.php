@@ -18,7 +18,7 @@ return new class extends Migration
 
             $table->foreignId(column: 'user_id')->constrained();
             $table->string(column: 'company');
-            $table->string(column: 'product_type');
+            $table->string(column: 'product_cate_id');
             $table->boolean(column: 'status')->default(true);
 
             $table->timestamps();

@@ -13,6 +13,11 @@ class Product extends Model
         'supplier_id', 'title', 'description', 'qty', 'size', 'status'
     ];
 
+    public function supplier()
+    {
+        return $this->belongsTo(Supplier::class);
+    }
+
     
 }
 
