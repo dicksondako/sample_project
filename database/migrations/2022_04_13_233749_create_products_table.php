@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('suppliers', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId(column: 'user_id')->constrained();
-            $table->string(column: 'company');
-            $table->string(column: 'product_type');
+            $table->foreignId(column: 'supplier_id')->constrained();
+            $table->string(column: 'title');
+            $table->longText(column: 'description');
+            $table->string(column: 'qty');
+            $table->string(column: 'size');
             $table->boolean(column: 'status')->default(true);
 
             $table->timestamps();
@@ -32,10 +34,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('suppliers');
+        Schema::dropIfExists('products');
     }
 };
 
 //Designed by Dickson Dako
 //micro-project
-

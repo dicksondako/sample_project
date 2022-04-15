@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Factory;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/user', function () {
+    $user = \App\Models\User::factory(20)->create();
 });
 
 Route::middleware([

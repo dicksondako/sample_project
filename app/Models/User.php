@@ -10,6 +10,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Supplier;
 
 class User extends Authenticatable
 {
@@ -64,4 +65,5 @@ class User extends Authenticatable
         //return this->hasOne('App\Models\Supplier')
         return $this->hasOne(Supplier::class);
     }
+
 }
